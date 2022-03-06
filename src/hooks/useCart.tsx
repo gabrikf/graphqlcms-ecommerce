@@ -48,6 +48,7 @@ export function CartProvider({ children }: ICartProviderProps): JSX.Element {
       );
     }
     setProductsTotalPrice((prev) => prev + price * quantity);
+    toast.success("Added to cart successfully");
   }
 
   return (
