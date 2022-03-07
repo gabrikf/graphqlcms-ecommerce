@@ -5,12 +5,12 @@ import Cart from "../../assets/Cart.svg";
 import { useCart } from "../../hooks/useCart";
 import { useMemo } from "react";
 export function CartItensButton(): JSX.Element {
-  const { productAmount, productsTotalPrice } = useCart();
+  const { cart } = useCart();
   const matches = useMediaQuery("(max-width:960px)");
   const productsTotalPrices = useMemo(() => {
-    const total = parseFloat(String(productsTotalPrice)).toFixed(2);
+    const total = parseFloat(String(cart.productsTotalPrice)).toFixed(2);
     return total;
-  }, [productsTotalPrice]);
+  }, [cart]);
   return (
     <Button
       sx={{
@@ -37,7 +37,7 @@ export function CartItensButton(): JSX.Element {
           alignItems: "center",
         }}
       >
-        {productAmount}
+        {cart.productAmount}
       </Box>
       <Typography
         sx={{ textTransform: "none", fontSize: "16px" }}
