@@ -30,7 +30,7 @@ export function CartItensButton(): JSX.Element {
           width: "20px",
           height: "20px",
           position: "absolute",
-          left: { xs: "123px", md: "40px" },
+          left: { xs: "115px", md: "40px" },
           top: "6px",
           display: "flex",
           justifyContent: "center",

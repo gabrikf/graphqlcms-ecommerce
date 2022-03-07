@@ -48,7 +48,6 @@ export function CartProvider({ children }: ICartProviderProps): JSX.Element {
 
   function addProduct(id: string, quantity: number, price: number) {
     const productQuantity = cart.productAmount;
-    console.log(cart);
     if (!cart.productsInCart.some((product) => product.id === id)) {
       setCart((prev) => {
         return {

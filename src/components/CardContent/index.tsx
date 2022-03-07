@@ -28,7 +28,6 @@ export function CartContent(): JSX.Element {
   const [page, setPage] = useState(1);
   const { filters } = useFilter();
   const matches = useMediaQuery("(max-width:960px)");
-  console.log(filters);
 
   const HOMEPAGE_QUERY = `query{
     allProducts(first: 6,  skip :${(page - 1) * 6 || 0}, 
@@ -57,7 +56,6 @@ export function CartContent(): JSX.Element {
     error,
     data: requestedData,
   } = useQuery<IProductsProps>(HOMEPAGE_QUERY);
-  console.log(filters);
   const data = useMemo(() => {
     const prodcutFormated = requestedData?.allProducts.map((product) => {
       return {
