@@ -36,7 +36,7 @@ export function Card({
   function handleAddingItem() {
     addProduct(id, +quantity, +price);
     setProductIsLoading(true);
-    setTimeout(() => setProductIsLoading(false), 5000);
+    setTimeout(() => setProductIsLoading(false), 2000);
   }
   return (
     <Box
