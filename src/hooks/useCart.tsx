@@ -14,6 +14,7 @@ interface ICartProviderProps {
 interface ICartContextData {
   cart: ICart;
   addProduct: (id: string, quantity: number, price: number) => void;
+  cleanCart: () => void;
 }
 
 interface ICart {
@@ -99,8 +100,12 @@ export function CartProvider({ children }: ICartProviderProps): JSX.Element {
     localStorage.setItem("@neo:cart", JSON.stringify(cart));
   }, [cart]);
 
+  function cleanCart() {
+    setCart({ productAmount: 0, productsTotalPrice: 0, productsInCart: [] });
+  }
+
   return (
-    <CartContext.Provider value={{ addProduct, cart }}>
+    <CartContext.Provider value={{ addProduct, cleanCart, cart }}>
       {children}
     </CartContext.Provider>
   );
