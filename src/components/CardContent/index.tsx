@@ -2,7 +2,7 @@ import { Box, Grid, Pagination, Stack, useMediaQuery } from "@mui/material";
 import { useQuery } from "graphql-hooks";
 import { useEffect, useMemo, useState } from "react";
 import { useFilter } from "../../hooks/useFilters";
-import { CartItensButton } from "../Header/CartItensButton";
+import { CartItensButton } from "../Cart/CartItensButton";
 import { Card } from "./Card";
 import CircularProgress from "@mui/material/CircularProgress";
 

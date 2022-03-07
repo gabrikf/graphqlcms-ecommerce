@@ -7,7 +7,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Products", "Pricing", "Blog"]; // fake data
 
 export function MobileMenu() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);

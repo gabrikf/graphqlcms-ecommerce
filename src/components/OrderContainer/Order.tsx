@@ -1,17 +1,7 @@
 import { Box, MenuItem, TextField, useMediaQuery } from "@mui/material";
 import FilterBuilder from "../../builders/FilterBuilder";
+import { FilterSortBy } from "../../constants/FilterConstants";
 import { useFilter } from "../../hooks/useFilters";
-
-const currencies = [
-  {
-    value: "rate_DESC",
-    label: "Rating",
-  },
-  {
-    value: "price_DESC",
-    label: "Price",
-  },
-];
 
 export function Order() {
   const { dispatchFilter, filters } = useFilter();
@@ -30,7 +20,7 @@ export function Order() {
         onChange={(e) => handleOrderBy(e.target.value)}
         size="small"
       >
-        {currencies.map((option) => (
+        {FilterSortBy.map((option) => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
           </MenuItem>

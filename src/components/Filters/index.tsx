@@ -1,28 +1,10 @@
-import { Button, InputBase, MenuItem, TextField } from "@mui/material";
+import { Button, MenuItem, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
 import { useFilter } from "../../hooks/useFilters";
 import FilterBuilder from "../../builders/FilterBuilder";
+import { ProductPriceAbove } from "../../constants/ProductsConstants";
 
-const currencies = [
-  {
-    value: 1,
-    label: "1 and above",
-  },
-  {
-    value: 2,
-    label: "2 and above",
-  },
-  {
-    value: 3,
-    label: "3 and above",
-  },
-  {
-    value: 4,
-    label: "4 and above",
-  },
-];
 interface INewFilterValues {
   description?: string;
   rateGte?: number;
@@ -87,7 +69,7 @@ export function Filters(): JSX.Element {
               onChange={formik.handleChange}
               size="small"
             >
-              {currencies.map((option) => (
+              {ProductPriceAbove.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>

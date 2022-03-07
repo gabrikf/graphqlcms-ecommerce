@@ -4,25 +4,7 @@ import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { useFilter } from "../../hooks/useFilters";
 import FilterBuilder from "../../builders/FilterBuilder";
-
-const currencies = [
-  {
-    value: 1,
-    label: "1 and above",
-  },
-  {
-    value: 2,
-    label: "2 and above",
-  },
-  {
-    value: 3,
-    label: "3 and above",
-  },
-  {
-    value: 4,
-    label: "4 and above",
-  },
-];
+import { ProductPriceAbove } from "../../constants/ProductsConstants";
 
 export function FiltersDrawerForm(): JSX.Element {
   const { dispatchFilter, filters } = useFilter();
@@ -76,7 +58,7 @@ export function FiltersDrawerForm(): JSX.Element {
             onChange={formik.handleChange}
             size="small"
           >
-            {currencies.map((option) => (
+            {ProductPriceAbove.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>

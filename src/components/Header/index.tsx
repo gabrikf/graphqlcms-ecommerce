@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { CartItensButton } from "./CartItensButton";
+import { CartItensButton } from "../Cart/CartItensButton";
 import { InputSearch } from "./InputSearch";
 import { Logo } from "./Logo";
 import { useMediaQuery } from "@mui/material";

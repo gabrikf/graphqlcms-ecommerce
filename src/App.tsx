@@ -2,7 +2,7 @@ import { Header } from "./components/Header";
 import { Filters } from "./components/Filters";
 import { OrderContainer } from "./components/OrderContainer";
 import { CartContent } from "./components/CardContent";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { CartProvider } from "./hooks/useCart";
 import "./global.css";
 import { FilterProvider } from "./hooks/useFilters";

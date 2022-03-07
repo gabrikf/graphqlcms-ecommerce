@@ -1,6 +1,5 @@
 import {
   Button,
-  Icon,
   Rating,
   Stack,
   Typography,
@@ -11,6 +10,7 @@ import { useState } from "react";
 import { useCart } from "../../hooks/useCart";
 import { BasicSelect } from "../Form/Select";
 import Ok from "../../assets/Ok.svg";
+import { ProductQuantity } from "../../constants/ProductsConstants";
 
 interface ICardProps {
   id: string;
@@ -20,29 +20,6 @@ interface ICardProps {
   price: string;
   priceConverted: string;
 }
-
-const options = [
-  {
-    value: "1",
-    display: "1",
-  },
-  {
-    value: "2",
-    display: "2",
-  },
-  {
-    value: "3",
-    display: "3",
-  },
-  {
-    value: "4",
-    display: "4",
-  },
-  {
-    value: "5",
-    display: "5",
-  },
-];
 
 export function Card({
   id,
@@ -115,7 +92,7 @@ export function Card({
           width={matches ? 120 : 40}
           outlined={matches}
           label={matches ? "quantity" : ""}
-          options={options}
+          options={ProductQuantity}
           value={quantity}
           setValue={setQuantity}
         />
