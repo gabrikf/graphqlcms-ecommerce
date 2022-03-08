@@ -7,7 +7,7 @@ import FilterBuilder from "../../builders/FilterBuilder";
 import { ProductPriceAbove } from "../../constants/ProductsConstants";
 
 export function FiltersDrawerForm(): JSX.Element {
-  const { dispatchFilter, filters } = useFilter();
+  const { dispatchFilter, clearFilter, filters } = useFilter();
   const formik = useFormik({
     initialValues: {
       rateGte: null,
@@ -19,6 +19,11 @@ export function FiltersDrawerForm(): JSX.Element {
       dispatchFilter(filterValues);
     },
   });
+
+  function handleClearFilter() {
+    formik.resetForm();
+    clearFilter();
+  }
 
   return (
     <form style={{ height: "40%" }} onSubmit={formik.handleSubmit}>
@@ -74,7 +79,7 @@ export function FiltersDrawerForm(): JSX.Element {
       >
         <Button
           type="reset"
-          onClick={() => formik.resetForm()}
+          onClick={handleClearFilter}
           sx={{ width: "163px", height: "40px", textTransform: "none" }}
           variant="text"
         >

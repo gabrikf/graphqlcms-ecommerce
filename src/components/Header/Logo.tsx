@@ -3,28 +3,30 @@ import { Box } from "@mui/system";
 
 export function Logo() {
   return (
-    <Box
-      sx={{
-        background: "#F9F9F9",
-        border: "solid 1px #777777",
-        height: "49px",
-        width: "175px",
-        borderRadius: "4px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Typography
+    <Box width={349}>
+      <Box
         sx={{
-          textTransform: "uppercase",
-          fontWeight: "800",
-          fontSize: "16px",
-          color: "black",
+          background: "#F9F9F9",
+          border: "solid 1px #777777",
+          height: "49px",
+          width: "250px",
+          borderRadius: "4px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        Logo
-      </Typography>
+        <Typography
+          sx={{
+            textTransform: "uppercase",
+            fontWeight: "800",
+            fontSize: "16px",
+            color: "black",
+          }}
+        >
+          Logo
+        </Typography>
+      </Box>
     </Box>
   );
 }

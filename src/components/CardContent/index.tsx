@@ -29,6 +29,9 @@ export function CartContent(): JSX.Element {
   const { filters } = useFilter();
   const matches = useMediaQuery("(max-width:960px)");
 
+  useEffect(() => {
+    setPage(1);
+  }, [filters]);
   const HOMEPAGE_QUERY = `query{
     allProducts(first: 6,  skip :${(page - 1) * 6 || 0}, 
     orderBy:${
@@ -47,7 +50,11 @@ export function CartContent(): JSX.Element {
           url
         }
     }
-    _allProductsMeta{
+    _allProductsMeta(filter: {   description: { matches: { pattern: "${
+      filters.description.matches.pattern
+    }" } },
+      rate: { gte: ${filters.rate.gte} },
+      price: { gte: ${filters.price.gte}, lte: ${filters.price.lte}},}){
       count,
     }
   }`;
@@ -71,7 +78,6 @@ export function CartContent(): JSX.Element {
       allProducts: prodcutFormated,
     };
   }, [requestedData]);
-
   if (loading)
     return (
       <div
@@ -133,7 +139,7 @@ export function CartContent(): JSX.Element {
           page={page}
           onChange={(e, value) => setPage(value)}
           color="primary"
-          count={data && Number(data?._allProductsMeta?.count) / 6}
+          count={data && Math.ceil(Number(data?._allProductsMeta?.count) / 6)}
           variant="outlined"
         />
       </Stack>

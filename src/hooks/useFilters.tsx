@@ -6,6 +6,7 @@ interface IFilterProviderProps {
 
 interface IFilterContext {
   dispatchFilter: (params: IInitialValues) => void;
+  clearFilter: () => void;
   filters: IInitialValues;
   initalState: IInitialValues;
 }
@@ -36,9 +37,14 @@ export function FilterProvider({ children }: IFilterProviderProps) {
       };
     });
   }
+  function clearFilter() {
+    setFilters(initalState);
+  }
 
   return (
-    <FilterContext.Provider value={{ initalState, filters, dispatchFilter }}>
+    <FilterContext.Provider
+      value={{ initalState, filters, dispatchFilter, clearFilter }}
+    >
       {children}
     </FilterContext.Provider>
   );

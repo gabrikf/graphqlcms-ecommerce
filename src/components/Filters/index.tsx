@@ -1,9 +1,10 @@
-import { Button, MenuItem, TextField } from "@mui/material";
+import { Button, IconButton, MenuItem, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import { Box } from "@mui/system";
 import { useFilter } from "../../hooks/useFilters";
 import FilterBuilder from "../../builders/FilterBuilder";
 import { ProductPriceAbove } from "../../constants/ProductsConstants";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface INewFilterValues {
   description?: string;
@@ -12,7 +13,7 @@ interface INewFilterValues {
   priceLte: number;
 }
 export function Filters(): JSX.Element {
-  const { dispatchFilter, filters } = useFilter();
+  const { dispatchFilter, filters, clearFilter } = useFilter();
   const formik = useFormik({
     initialValues: {
       rateGte: null,
@@ -24,6 +25,10 @@ export function Filters(): JSX.Element {
       dispatchFilter(filterValues);
     },
   });
+  function handleClearFilter() {
+    formik.resetForm();
+    clearFilter();
+  }
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -33,7 +38,7 @@ export function Filters(): JSX.Element {
         sx={{ padding: "24px", margin: "40px", background: "#F9F9F9" }}
       >
         <Box width="160px"></Box>
-        <Box display="flex" gap={2}>
+        <Box display="flex" gap={2} alignItems="center">
           <Box height="40px" width="112px">
             <TextField
               fullWidth
@@ -76,6 +81,9 @@ export function Filters(): JSX.Element {
               ))}
             </TextField>
           </Box>
+          <IconButton type="reset" title="Clean filters">
+            <CloseIcon sx={{ cursor: "pointer" }} onClick={handleClearFilter} />
+          </IconButton>
         </Box>
         <Box>
           <Button

@@ -2,12 +2,15 @@ import Box from "@mui/material/Box";
 import { CartItensButton } from "../Cart/CartItensButton";
 import { InputSearch } from "./InputSearch";
 import { Logo } from "./Logo";
-import { useMediaQuery } from "@mui/material";
+import { Stack, useMediaQuery } from "@mui/material";
 import { MobileMenu } from "./MobileMenu";
+import { BasicSelect } from "../Form/Select";
+import { useState } from "react";
+import { LanguageSelector } from "../../constants/LanguageConstants";
 
 export function Header(): JSX.Element {
   const matches = useMediaQuery("(min-width:960px)");
-
+  const [language, setLanguege] = useState("English");
   return (
     <Box
       display="flex"
@@ -18,7 +21,18 @@ export function Header(): JSX.Element {
     >
       {matches && <Logo />}
       <InputSearch />
-      {matches && <CartItensButton />}
+      {matches && (
+        <Stack direction="row" spacing={4} alignItems="center">
+          <BasicSelect
+            width={100}
+            label=""
+            options={LanguageSelector}
+            value={language}
+            setValue={setLanguege}
+          />
+          <CartItensButton />
+        </Stack>
+      )}
       <MobileMenu />
     </Box>
   );
