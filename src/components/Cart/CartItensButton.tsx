@@ -5,6 +5,7 @@ import Cart from "../../assets/Cart.svg";
 import { useCart } from "../../hooks/useCart";
 import { useMemo } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+
 export function CartItensButton(): JSX.Element {
   const { cart, cleanCart } = useCart();
   const matches = useMediaQuery("(max-width:960px)");
@@ -12,6 +13,7 @@ export function CartItensButton(): JSX.Element {
     const total = parseFloat(String(cart.productsTotalPrice)).toFixed(2);
     return total;
   }, [cart]);
+
   return (
     <Button
       sx={{

@@ -8,7 +8,7 @@ import {
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { useCart } from "../../hooks/useCart";
-import { BasicSelect } from "../Form/Select";
+import { BasicSelect } from "../Form/BasicSelect";
 import Ok from "../../assets/Ok.svg";
 import { ProductQuantity } from "../../constants/ProductsConstants";
 
