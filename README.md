@@ -1,5 +1,5 @@
 # neo-challenge
-![image](https://user-images.githubusercontent.com/67654630/156940116-b8cb67cd-2196-4f78-ba0a-d2e0cd5f4f53.png)
+![image](https://user-images.githubusercontent.com/67654630/157235400-f16a2603-2b33-405f-995c-a1e1ce59c29c.png)
 
 To install the packages please run: 
 ### `npm install` || `yarn`
