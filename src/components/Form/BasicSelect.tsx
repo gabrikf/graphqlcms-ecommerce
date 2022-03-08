@@ -27,10 +27,6 @@ export function BasicSelect({
   options,
   width,
 }: IBasicSelecProps) {
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value as string);
-  };
-
   return (
     <Box sx={{ width: width || 120 }}>
       <FormControl fullWidth>
@@ -39,7 +35,7 @@ export function BasicSelect({
           value={value}
           label={label}
           variant={outlined ? "outlined" : "standard"}
-          onChange={handleChange}
+          onChange={(e) => setValue(e.target.value)}
           size="small"
           select
         >

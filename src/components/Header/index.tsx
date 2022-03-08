@@ -4,7 +4,7 @@ import { InputSearch } from "./InputSearch";
 import { Logo } from "./Logo";
 import { Stack, useMediaQuery } from "@mui/material";
 import { MobileMenu } from "./MobileMenu";
-import { BasicSelect } from "../Form/Select";
+import { BasicSelect } from "../Form/BasicSelect";
 import { useState } from "react";
 import { LanguageSelector } from "../../constants/LanguageConstants";
 
