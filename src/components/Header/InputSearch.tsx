@@ -30,7 +30,6 @@ export function InputSearch(): JSX.Element {
       <InputBase
         onChange={(e) => handleSearchBox(e.target.value)}
         placeholder="Search"
-        type="search"
         fullWidth
       />
       {!matches && <SearchIcon />}
