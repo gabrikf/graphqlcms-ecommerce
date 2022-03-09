@@ -14,25 +14,26 @@ describe("BasicSelect component", () => {
       <BasicSelect
         width={40}
         outlined
-        label=""
+        label="testLabel"
         options={mockedOptions}
-        value="test value"
+        value=""
         setValue={() => {}}
       />
     );
-    expect(screen.getByText("test value")).toBeInTheDocument();
+    expect(screen.getAllByText("testLabel")[0]).toBeInTheDocument();
   });
 
   it("should render correctly when outlined is false and width is not given", () => {
     render(
       <BasicSelect
-        label=""
+        width={40}
+        label="testLabel"
         options={mockedOptions}
-        value="test value"
+        value=""
         setValue={() => {}}
       />
     );
-    expect(screen.getByText("test value")).toBeInTheDocument();
+    expect(screen.getByText("testLabel")).toBeInTheDocument();
   });
 
   it("should change when onChange", () => {
@@ -41,9 +42,9 @@ describe("BasicSelect component", () => {
       <BasicSelect
         width={40}
         outlined
-        label="test"
+        label="testLabel"
         options={mockedOptions}
-        value="test"
+        value=""
         setValue={mockedChange}
       />
     );
